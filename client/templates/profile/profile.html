@@ -1,7 +1,13 @@
 <template name='profile'>
   <h3>Edit Profile</h3>
-  <h4>Email: {{currentUser.emails.[0].address}}</h4>
-  <h4>User Name: {{currentUser.username}} </h4>
+
+  {{#if currentUser.services.facebook.name}}
+    <h4>Facebook User Name: {{currentUser.services.facebook.name}}</h4>
+    <h4>Facebook Email: {{currentUser.services.facebook.email}}</h4>
+  {{else}}
+    <h4>User Name: {{currentUser.username}} </h4>
+    <h4>Email: {{currentUser.emails.[0].address}}</h4>
+  {{/if}}
   {{#if getProfileImg currentUser._id}}
     <p><img src='{{getProfileImg currentUser._id}}' class='img-thumbnail' alt='profile-pic'></p>
   {{else}}
