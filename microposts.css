@@ -17,3 +17,7 @@ img {
   margin-top: -5px;
   margin-right: 60px;
 }
+.img-thumbnail{
+  width: 150px;
+  height: 150px;
+}
