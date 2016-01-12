@@ -2,7 +2,11 @@
   <h3>Edit Profile</h3>
   <h4>Email: {{currentUser.emails.[0].address}}</h4>
   <h4>User Name: {{currentUser.username}} </h4>
-  <p><img src='{{getProfileImg currentUser._id}}' class='img-thumbnail' alt='profile-pic'></p>
+  {{#if getProfileImg currentUser._id}}
+    <p><img src='{{getProfileImg currentUser._id}}' class='img-thumbnail' alt='profile-pic'></p>
+  {{else}}
+    <p><img src='/img/profile.jpg' class='img-thumbnail' alt='profile-pic'></p>
+  {{/if}}
   <form class='edit-profile' enctype='multipart/form-data'>
       <label for='profileImage'>Upload Profile Image:</label> <input type='file' name='profileImage' id='profileImage'>
       <br>
