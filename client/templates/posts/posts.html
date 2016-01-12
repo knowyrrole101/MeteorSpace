@@ -1,5 +1,6 @@
 <template name='posts'>
   <!-- Button trigger modal -->
+    {{#if currentUser}}
     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#postModal">
       Post a Message
     </button>
@@ -21,4 +22,24 @@
         </div>
       </div>
     </div>
+
+    <hr>
+      {{#each posts}}
+      <div class='row post'>
+        <div class='col-md-1'>
+          <!-- Create Custom Global Method -->
+          <img src='{{getProfileImg userId}}' alt='profile-pic'>
+        </div>
+        <div class='col-md-11'>
+          <small>Posted by {{username}} at {{createdAt}}</small>
+          <p> {{body}}</p>
+        </div>
+      </div>
+      {{else}}
+        <h4> No Posts! </h4>
+      {{/each}}
+
+    {{else}}
+      <h3>Please Login or Register!! :) </h3>
+    {{/if}}
 </template>
