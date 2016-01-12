@@ -1,4 +1,4 @@
 local
 
 #Ignore secret_settings
-*/settings.json
+../server/settings.json
